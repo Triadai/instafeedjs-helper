@@ -1,7 +1,11 @@
 'use strict';
 
 const url = require("url");
-const errorMessages = require("../error_messages");
+const request = require("request-promise");
+
+const INSTAGRAM_CLIENT_ID     = process.env.INSTAGRAM_CLIENT_ID;
+const INSTAGRAM_REDIRECT_URI  = process.env.INSTAGRAM_REDIRECT_URI;
+const INSTAGRAM_CLIENT_SECRET = process.env.INSTAGRAM_CLIENT_SECRET;
 
 class InstagramInterface {
   authorizationParams(config) {
@@ -12,8 +16,8 @@ class InstagramInterface {
     return {
       response_type:  "code",
       scope:          scopesParam,
-      client_id:      process.env.INSTAGRAM_CLIENT_ID,
-      redirect_uri:   process.env.INSTAGRAM_REDIRECT_URI
+      client_id:      INSTAGRAM_CLIENT_ID,
+      redirect_uri:   INSTAGRAM_REDIRECT_URI
     };
   }
 
@@ -21,10 +25,33 @@ class InstagramInterface {
     return url.format({
       protocol:   "https",
       host:       "api.instagram.com",
-      pathname:   "/oauth/authorize/",
+      pathname:   "/oauth/authorize",
       query:      this.authorizationParams(options)
     });
   }
+
+  oauthToken(code) {
+    let requestUri = url.format({
+      protocol:   "https",
+      host:       "api.instagram.com",
+      pathname:   "/oauth/access_token"
+    });
+
+    let requestForm = {
+      code:           code,
+      grant_type:     "authorization_code",
+      client_secret:  INSTAGRAM_CLIENT_SECRET,
+      redirect_uri:   INSTAGRAM_REDIRECT_URI
+    };
+
+    return request({
+      uri: requestUri,
+      form: requestForm
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
 }
 
 module.exports = InstagramInterface;

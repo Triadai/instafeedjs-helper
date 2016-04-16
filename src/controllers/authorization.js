@@ -5,6 +5,7 @@ const errorMessages = require("../error_messages");
 
 class AuthorizationController {
   index(conn) {
+    let instagram   = new InstagramInterface();
     let params      = conn.params || {};
     let authCode    = params.code;
     let errorCode   = params.error;
@@ -28,6 +29,10 @@ class AuthorizationController {
       conn.redirect("/");
       return;
     }
+
+    return instagram.oauthToken(authCode).then((res) => {
+      conn.json(res);
+    });
   }
 }
 
