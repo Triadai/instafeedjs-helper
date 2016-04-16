@@ -1,1 +1,8 @@
-%p this is a test
+- if (flash) {
+  %p{ style: "color: red;" }= flash
+- }
+
+%h1 Login with Instagram
+
+%p
+  %a{ href: instagram_auth_url } Login

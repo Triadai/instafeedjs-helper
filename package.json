@@ -6,6 +6,7 @@
     "start": "node src/server.js"
   },
   "dependencies": {
+    "dotenv": "^2.0.0",
     "hamljs": "^0.6.2",
     "pimm": "^1.0.1"
   }

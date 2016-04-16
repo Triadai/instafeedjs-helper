@@ -1,0 +1,9 @@
+{
+  "instagram": {
+    "access_denied": {
+      "user_denied": "Oops! Looks like you denied access to your account. \"Instafeed.js Helper\" needs access to your Instagram account in order to fetch your user ID and profile. Please log back in with Instagram and allow access."
+    },
+    "general_auth_error": "Oops! Looks like we can't access your Instagram account. Please make sure your credentials are correct and grant \"Instafeed.js Helper\" access to your account.",
+    "no_auth_code": "No authorization code found from Instagram. Please make sure your login credentials are correct."
+  }
+}
