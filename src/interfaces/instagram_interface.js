@@ -40,15 +40,15 @@ class InstagramInterface {
     let requestForm = {
       code:           code,
       grant_type:     "authorization_code",
+      client_id:      INSTAGRAM_CLIENT_ID,
       client_secret:  INSTAGRAM_CLIENT_SECRET,
       redirect_uri:   INSTAGRAM_REDIRECT_URI
     };
 
     return request({
       uri: requestUri,
+      method: 'post',
       form: requestForm
-    }).catch((err) => {
-      console.log(err);
     });
   }
 

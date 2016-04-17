@@ -2,7 +2,22 @@
   %p{ style: "color: red;" }= flash
 - }
 
-%h1 Login with Instagram
+- if (authorized) {
+  %p
+    Username:
+    %b= username
+  %p
+    User ID:
+    %b= userId
+  %p
+    Token:
+    %b= oauthToken
 
-%p
-  %a{ href: instagram_auth_url } Login
+  %p
+    %a{ href: "/logout" } Logout
+- } else {
+  %h1 Login with Instagram
+
+  %p
+    %a{ href: instagram_auth_url } Login
+- }

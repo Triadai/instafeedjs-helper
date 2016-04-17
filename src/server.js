@@ -13,6 +13,7 @@ let server = new Pimm({
 
 server.routes(function() {
   this.get("/", "home#index");
+  this.get("/logout", "logout#index");
   this.get("/authorize", "authorization#index");
 });
 

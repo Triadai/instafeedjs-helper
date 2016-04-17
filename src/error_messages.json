@@ -3,6 +3,11 @@
     "access_denied": {
       "user_denied": "Oops! Looks like you denied access to your account. \"Instafeed.js Helper\" needs access to your Instagram account in order to fetch your user ID and profile. Please log back in with Instagram and allow access."
     },
+    "token_request": {
+      "400": "Instagram was unable to convert this authorization into a valid token, because of a formatting issue. This is mostly likely a technical problem with this application. Please send a note to spschobert@gmail.com so it can get fixed. Mention reason: 400",
+      "401": "Instagram is refusing to convert this authorization into a valid token. This is mostly likely a technical problem with this application. Please send a note to spschobert@gmail.com so it can get fixed. Mention reason: 401"
+    },
+    "general_token_error": "Hmm, we're having some trouble converting your authorization into a valid token. Instagram could be down, or the authorization expired. Please re-try logging in with your Instagram account.",
     "general_auth_error": "Oops! Looks like we can't access your Instagram account. Please make sure your credentials are correct and grant \"Instafeed.js Helper\" access to your account.",
     "no_auth_code": "No authorization code found from Instagram. Please make sure your login credentials are correct."
   }
