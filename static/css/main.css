@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face{
+  font-family: Batch;
+  src: url('../fonts/batch-icons-webfont.eot');
+  src: url('../fonts/batch-icons-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/batch-icons-webfont.woff') format('woff'),
+    url('../fonts/batch-icons-webfont.ttf') format('truetype'),
+    url('../fonts/batch-icons-webfont.svg#batchregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.batch {
+  font-family: "Batch" !important;
+  font-size: 16px !important;
+  line-height: 1;
+  display: inline-block;
+  font-weight: normal !important;
+}
+
+.batch-lock:after {
+  content: "\F0C2";
+}
+
+.batch-key:after {
+  content: "\F0C0";
+}
+
+.batch-trash:after {
+  content: "\F155";
+}
+
+.nav {
+  padding: 16px;
+  text-align: right;
+}
+
+.sign-out {
+  color: rgba(243, 61, 71, 1);
+  font-size: .8em;
+  font-weight: bold;
+  background: #fff;
+  font-family: -apple-system, "Helvetica Neue", "Lucida Grande";
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  padding: 8px 16px;
+  display: inline-block;
+  border-radius: 32px;
+  border: 1px solid rgba(243, 61, 71, 1);
+  transition-property: color, background;
+  transition-duration: 100ms;
+}
+
+.sign-out:hover {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(243, 61, 71, 1);
+}
+
+.sign-out span {
+  margin-right: 8px;
+}
+
+.login {
+  color: rgba(132, 102, 240, 1);
+  font-size: .8em;
+  font-weight: bold;
+  background: #fff;
+  font-family: -apple-system, "Helvetica Neue", "Lucida Grande";
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  padding: 8px 16px;
+  display: inline-block;
+  border-radius: 32px;
+  border: 1px solid rgba(132, 102, 240, 1);
+  transition-property: color, background;
+  transition-duration: 100ms;
+}
+
+.login:hover {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(132, 102, 240, 1);
+}
+
+.login span {
+  margin-right: 8px;
+}

@@ -1,12 +1,14 @@
 "use strict";
 
-const Pimm = require("pimm");
-const dotenv = require("dotenv");
+const Pimm    = require("pimm");
+const dotenv  = require("dotenv");
+const path    = require("path");
 
 dotenv.config();
 
 let server = new Pimm({
   dir: __dirname,
+  static: path.join(__dirname, "../static"),
   templating: "haml",
   session: process.env.SESSION_SECRET || "localdev"
 });

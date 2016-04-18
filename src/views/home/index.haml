@@ -1,3 +1,22 @@
+!!!
+%head
+  %title test page
+
+  %link{ rel: "stylesheet", href: "/css/main.css" }
+  %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
+%body
+
+.nav
+  - if (authorized) {
+    %a.sign-out{ title: "Sign Out", href: "/logout" }
+      %span.batch.batch-trash
+      = username
+  - } else {
+    %a.login{ href: instagram_auth_url }
+      %span.batch.batch-lock
+      Login with Instagram
+  - }
+
 - if (flash) {
   %p{ style: "color: red;" }= flash
 - }
@@ -12,12 +31,6 @@
   %p
     Token:
     %b= oauthToken
-
-  %p
-    %a{ href: "/logout" } Logout
 - } else {
   %h1 Login with Instagram
-
-  %p
-    %a{ href: instagram_auth_url } Login
 - }
