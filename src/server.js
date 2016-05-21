@@ -10,6 +10,7 @@ let server = new Pimm({
   dir: __dirname,
   static: path.join(__dirname, "../static"),
   templating: "haml",
+  caching: process.env.NODE_ENV === "production",
   session: process.env.SESSION_SECRET || "localdev"
 });
 
