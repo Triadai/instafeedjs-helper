@@ -18,6 +18,7 @@ server.routes(function() {
   this.get("/", "home#index");
   this.get("/logout", "logout#index");
   this.get("/authorize", "authorization#index");
+  this.get("/terms-and-privacy", "terms#index");
 });
 
 server.start().then(function() {
