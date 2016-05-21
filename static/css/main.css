@@ -205,3 +205,29 @@ pre {
 .result-list li:first-child {
   border-top: 1px solid #eee;
 }
+
+.edit-codepen-button {
+  background: #000;
+  background: linear-gradient(#333335, #000000);
+  display: inline-block;
+  border-radius: 3px;
+  font-family: sans-serif;
+  font-family: -apple-system, "Helvetica Neue", "Lucida Grande";
+  height: 38px;
+  padding: 0 .7em;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.edit-codepen-button img {
+  float: left;
+  margin-right: 5px;
+  display: block;
+  width: 36px;
+  height: 36px;
+}

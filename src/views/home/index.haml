@@ -35,6 +35,30 @@
           You can copy and paste the settings above to get started with your feed. When you're
           ready, check out the full list of options available to you at
           %a{ href: "http://instafeedjs.com" }instafeedjs.com
+        %p
+          - var codepenOptions = {
+          -   title: "@" + username + " on Instagram",
+          -   description: "Trying out Instafeed.js to fetch my Instagram pictures!",
+          -   js_external: "https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js",
+          -   html: [
+          -     '<div id="instafeed"></div>',
+          -     '<p>',
+          -     '  Follow <a href="http://instagram.com/'+ username +'">@'+ username +'</a> on Instagram.',
+          -     '  <br>',
+          -     '  <small>Powered by <a href="http://instafeedjs.com">Instafeed.js</a></small>',
+          -     '</p>'
+          -   ].join("\n"),
+          -   js: [
+          -     "var feed = new Instafeed({",
+          -     "  get: 'user',",
+          -     "  userId: '" + userId + "',",
+          -     "  accessToken: '" + oauthToken + "',",
+          -     "  limit: 10,",
+          -     "  resolution: 'thumbnail',",
+          -     "});",
+          -     "feed.run();"
+          -   ].join("\n"),
+          - };
         %pre.language-markup
           %code
             = '<div id="instafeed"></div>\n\n'
@@ -49,6 +73,13 @@
             != "  });\n"
             != "  feed.run();\n"
             = "</script>"
+        %p
+          %form{ action: "http://codepen.io/pen/define", method: "POST", target: "_blank" }
+            %input{ type: "hidden", name: "data", value: JSON.stringify(codepenOptions) }
+            %button.edit-codepen-button
+              %img{ src: "http://s.cdpn.io/3/cp-arrow-right.svg" }
+              Try it on CodePen
+
       .page-section.result-section.result-section-first
         %h3 Account Details
         %p
