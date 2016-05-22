@@ -29,36 +29,49 @@
       .page-section.result-section-preview
         %h3 Preview
         #instafeed
+
+      - var codepenOptions = {
+      -   title: "@" + username + " on Instagram",
+      -   description: "Trying out Instafeed.js to fetch my Instagram pictures!",
+      -   js_external: "https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js",
+      -   html: [
+      -     '<div id="instafeed"></div>',
+      -     '<p>',
+      -     '  Follow <a href="http://instagram.com/'+ username +'">@'+ username +'</a> on Instagram.',
+      -     '  <br>',
+      -     '  <small>Powered by <a href="http://instafeedjs.com">Instafeed.js</a></small>',
+      -     '</p>'
+      -   ].join("\n"),
+      -   js: [
+      -     "var feed = new Instafeed({",
+      -     "  get: 'user',",
+      -     "  userId: '" + userId + "',",
+      -     "  accessToken: '" + oauthToken + "',",
+      -     "  limit: 10,",
+      -     "  resolution: 'thumbnail',",
+      -     "});",
+      -     "feed.run();"
+      -   ].join("\n"),
+      - };
+      .page-section.result-section
+        %h3 Try on CodePen
+        %p
+          If you want just straight into the code and style playing with Instafeed.js,
+          you can create a new CodePen using the button below:
+        %p
+          %form{ action: "http://codepen.io/pen/define", method: "POST", target: "_blank" }
+            %input{ type: "hidden", name: "data", value: JSON.stringify(codepenOptions) }
+            %button.edit-codepen-button
+              %img{ src: "http://s.cdpn.io/3/cp-arrow-right.svg" }
+              Try it on CodePen
       .page-section.result-section
         %h3 Code Example
         %p
-          You can copy and paste the settings above to get started with your feed. When you're
-          ready, check out the full list of options available to you at
+          If you'd rather setup Instafeed.js in an existing project, you can copy and
+          paste the snippet below into any HTML page. When you're ready, check out the full
+          list of options available to you at
           %a{ href: "http://instafeedjs.com" }instafeedjs.com
-        %p
-          - var codepenOptions = {
-          -   title: "@" + username + " on Instagram",
-          -   description: "Trying out Instafeed.js to fetch my Instagram pictures!",
-          -   js_external: "https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js",
-          -   html: [
-          -     '<div id="instafeed"></div>',
-          -     '<p>',
-          -     '  Follow <a href="http://instagram.com/'+ username +'">@'+ username +'</a> on Instagram.',
-          -     '  <br>',
-          -     '  <small>Powered by <a href="http://instafeedjs.com">Instafeed.js</a></small>',
-          -     '</p>'
-          -   ].join("\n"),
-          -   js: [
-          -     "var feed = new Instafeed({",
-          -     "  get: 'user',",
-          -     "  userId: '" + userId + "',",
-          -     "  accessToken: '" + oauthToken + "',",
-          -     "  limit: 10,",
-          -     "  resolution: 'thumbnail',",
-          -     "});",
-          -     "feed.run();"
-          -   ].join("\n"),
-          - };
+          = "."
         %pre.language-markup
           %code
             = '<div id="instafeed"></div>\n\n'
@@ -73,13 +86,6 @@
             != "  });\n"
             != "  feed.run();\n"
             = "</script>"
-        %p
-          %form{ action: "http://codepen.io/pen/define", method: "POST", target: "_blank" }
-            %input{ type: "hidden", name: "data", value: JSON.stringify(codepenOptions) }
-            %button.edit-codepen-button
-              %img{ src: "http://s.cdpn.io/3/cp-arrow-right.svg" }
-              Try it on CodePen
-
       .page-section.result-section.result-section-first
         %h3 Account Details
         %p
@@ -100,49 +106,49 @@
             %strong Access Token
             %br
             %code= oauthToken
-    - }
+      - }
 
-    .page-divider
+      .page-divider
 
-    .page-section
-      %h2 What is this?
-      %p
-        This page will help you get started with Instafeed.js by taking care of all
-        the authentication parts of the Instagram API.
-    .page-section
-      %h2 Instructions
-      %p
-        Rather than having to set up a developer application & generate an access
-        token yourself, you can sign-in with your Instagram account above.
-      %p
-        After signing in with your account, you'll be able to see your Instagram user ID,
-        access token, and there will be a code snippet you can copy and paste into
-        your site to start displaying your pictures. That's it!
-    .page-section
-      %h2 Is it safe to use this access token on public website?
-      %p
-        Yes. Instafeed.js helper generates tokens with only the most basic permission set,
-        which includes reading your public profile information, and fetching your pictures.
-      %p
-        The tokens cannot be used to take any actions on your behalf (post comments, like pictures)
-        and they cannot be used to modify our account information in any way.
-      %p
-        Instafeed.js Helper also does not store these tokens, it only displays them here on this
-        page.
+      .page-section
+        %h2 What is this?
+        %p
+          This page will help you get started with Instafeed.js by taking care of all
+          the authentication parts of the Instagram API.
+      .page-section
+        %h2 Instructions
+        %p
+          Rather than having to set up a developer application & generate an access
+          token yourself, you can sign-in with your Instagram account above.
+        %p
+          After signing in with your account, you'll be able to see your Instagram user ID,
+          access token, and there will be a code snippet you can copy and paste into
+          your site to start displaying your pictures. That's it!
+      .page-section
+        %h2 Is it safe to use this access token on public website?
+        %p
+          Yes. Instafeed.js helper generates tokens with only the most basic permission set,
+          which includes reading your public profile information, and fetching your pictures.
+        %p
+          The tokens cannot be used to take any actions on your behalf (post comments, like pictures)
+          and they cannot be used to modify our account information in any way.
+        %p
+          Instafeed.js Helper also does not store these tokens, it only displays them here on this
+          page.
 
-    - if (authorized) {
-      %script{ src: "/js/prism.js" }
-      %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js" }
-      %script
-        var feed = new Instafeed({
-          get: 'user',
-          != "userId: '" + userId + "',"
-          != "accessToken: '" + oauthToken + "',"
-          limit: 10,
-          resolution: 'thumbnail'
-          });
-          feed.run();
-    - }
+      - if (authorized) {
+        %script{ src: "/js/prism.js" }
+        %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js" }
+        %script
+          var feed = new Instafeed({
+            get: 'user',
+            != "userId: '" + userId + "',"
+            != "accessToken: '" + oauthToken + "',"
+            limit: 10,
+            resolution: 'thumbnail'
+            });
+            feed.run();
+      - }
 
     .page-footer
       %p
